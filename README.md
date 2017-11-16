@@ -1,2 +1,0 @@
-# king
-Projeto king
