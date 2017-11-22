@@ -40,8 +40,6 @@ object Frm_Princ_Server: TFrm_Princ_Server
         Width = 50
       end>
     UseSystemFont = False
-    ExplicitTop = 225
-    ExplicitWidth = 539
   end
   object PM_Princ: TPopupMenu
     Left = 328

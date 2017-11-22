@@ -18,6 +18,8 @@ uses
   SynCrossPlatformSpecific,
   {$ENDIF}
 
+
+
   System.SysUtils,
   System.Variants,
   System.Classes,
