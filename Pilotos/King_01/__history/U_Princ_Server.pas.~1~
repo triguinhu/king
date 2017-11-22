@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
 
 type
-  TFrm_Princ_Server = class(TForm)
+  TForm1 = class(TForm)
   private
     { Private declarations }
   public
@@ -15,7 +15,7 @@ type
   end;
 
 var
-  Frm_Princ_Server: TFrm_Princ_Server;
+  Form1: TForm1;
 
 implementation
 
