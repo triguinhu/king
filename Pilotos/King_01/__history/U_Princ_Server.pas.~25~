@@ -3,23 +3,9 @@ unit U_Princ_Server;
 interface
 
 uses
-
-  {$IFDEF MSWINDOWS}
-  mORMotHttpClient,
-  mORMot,
-  mORMotVCL,
-  SynCommons,
   Winapi.Windows,
   Winapi.Messages,
   Winapi.ShellAPI,
-  {$ELSE}
-  SynCrossPlatformREST,
-  SynCrossPlatformJSON,
-  SynCrossPlatformSpecific,
-  {$ENDIF}
-
-
-
   System.SysUtils,
   System.Variants,
   System.Classes,
