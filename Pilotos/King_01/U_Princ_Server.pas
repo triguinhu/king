@@ -54,6 +54,7 @@ type
     procedure Im_SairDrawItem(Sender: TObject; ACanvas: TCanvas;
       ARect: TRect; Selected: Boolean);
     procedure Im_SairClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     { Private declarations }
    aTrayIconData: TNotifyIconData;
@@ -97,8 +98,18 @@ begin
     finally
       atf.Free;
     end;
-    TextOut(2, 98, ' Servidor King ');
+    TextOut(2, 98, 'Servidor King');
   end;
+
+end;
+
+procedure TFrm_Princ_Server.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
+begin
+
+   if CanClose then
+    CanClose := false;
+   Frm_Princ_Server.Hide;
 
 end;
 

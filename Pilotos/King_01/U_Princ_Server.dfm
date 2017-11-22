@@ -14,6 +14,7 @@ object Frm_Princ_Server: TFrm_Princ_Server
   KeyPreview = True
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96

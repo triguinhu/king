@@ -32,7 +32,7 @@ object Frm_Princ_Server: TFrm_Princ_Server
       item
         Alignment = taCenter
         Text = 'King - Servidor de Aplica'#231#227'o'
-        Width = 180
+        Width = 200
       end
       item
         Alignment = taCenter
@@ -40,29 +40,33 @@ object Frm_Princ_Server: TFrm_Princ_Server
         Width = 50
       end>
     UseSystemFont = False
-    ExplicitTop = 225
-    ExplicitWidth = 539
   end
   object PM_Princ: TPopupMenu
-    Left = 528
-    Top = 216
-    object MostrarForm1: TMenuItem
-      Caption = 'Gerenciador Mobile'
+    Left = 328
+    Top = 258
+    object Im_Ger_Serv: TMenuItem
+      Caption = 'Gerenciar Servidor'
+      OnDrawItem = Im_Ger_ServDrawItem
     end
-    object EsconderForm1: TMenuItem
+    object Im_Min: TMenuItem
       Caption = 'Minimizar'
+      OnDrawItem = Im_MinDrawItem
     end
-    object Sair1: TMenuItem
+    object Im_Conf: TMenuItem
       Caption = 'Configura'#231#245'es'
+      OnDrawItem = Im_ConfDrawItem
     end
-    object Animar1: TMenuItem
+    object Im_Lic: TMenuItem
       Caption = 'Licen'#231'a'
+      OnDrawItem = Im_LicDrawItem
     end
-    object Sincronizar1: TMenuItem
-      Caption = 'Sincronizar'
+    object Im_Login: TMenuItem
+      Caption = 'Login'
     end
-    object estar1: TMenuItem
+    object Im_Sair: TMenuItem
       Caption = 'Sair'
+      OnClick = Im_SairClick
+      OnDrawItem = Im_SairDrawItem
     end
   end
 end
