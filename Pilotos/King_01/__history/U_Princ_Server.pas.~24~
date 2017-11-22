@@ -183,9 +183,7 @@ end;
 
 procedure TFrm_Princ_Server.Im_SairClick(Sender: TObject);
 begin
-
   Application.Terminate;
-
 end;
 
 procedure TFrm_Princ_Server.Im_SairDrawItem(Sender: TObject;

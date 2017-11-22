@@ -29,13 +29,14 @@ type
     Animar1: TMenuItem;
     Sincronizar1: TMenuItem;
     estar1: TMenuItem;
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
-   TrayIconData: TNotifyIconData;
+   aTrayIconData: TNotifyIconData;
   public
     { Public declarations }
-   procedure TrayMessage(var Msg: TMessage); message WM_ICONTRAY;
-   procedure DrawBar(ACanvas: TCanvas);
+   procedure TrayMessage(var aMsg: TMessage); message WM_ICONTRAY;
+   procedure DrawBar(aACanvas: TCanvas);
   end;
 
 var
@@ -47,39 +48,47 @@ implementation
 
 { TFrm_Princ_Server }
 
-procedure TFrm_Princ_Server.DrawBar(ACanvas: TCanvas);
+procedure TFrm_Princ_Server.DrawBar(aACanvas: TCanvas);
 var
-  lf : TLogFont;
-  tf : TFont;
+  alf : TLogFont;
+  atf : TFont;
 begin
-  with ACanvas do begin
+
+  with aACanvas do
+  begin
     Brush.Color := clSkyBlue;
     FillRect(Rect(0,0,20,122));
     Font.Name := 'Tahoma';
     Font.Size := 7;
     Font.Style := Font.Style - [fsBold];
     Font.Color := clWhite;
-    tf := TFont.Create;
+    atf := TFont.Create;
     try
-      tf.Assign(Font);
-      GetObject(tf.Handle, sizeof(lf), @lf);
-      lf.lfEscapement := 900;
-      lf.lfHeight := Font.Height - 2;
-      tf.Handle := CreateFontIndirect(lf);
-      Font.Assign(tf);
+      atf.Assign(Font);
+      GetObject(atf.Handle, sizeof(alf), @alf);
+      alf.lfEscapement := 900;
+      alf.lfHeight := Font.Height - 2;
+      atf.Handle := CreateFontIndirect(alf);
+      Font.Assign(atf);
     finally
-      tf.Free;
+      atf.Free;
     end;
-    TextOut(2, 98, 'Servidor King ');
+    TextOut(2, 98, ' Servidor King ');
   end;
 
 end;
 
-procedure TFrm_Princ_Server.TrayMessage(var Msg: TMessage);
-var
-  p : TPoint;
+procedure TFrm_Princ_Server.FormDestroy(Sender: TObject);
 begin
-  case Msg.lParam of
+  Shell_NotifyIcon(NIM_DELETE, @aTrayIconData);
+end;
+
+procedure TFrm_Princ_Server.TrayMessage(var aMsg: TMessage);
+var
+  ap : TPoint;
+begin
+
+  case aMsg.lParam of
     WM_LBUTTONDBLCLK:
     begin
       Frm_Princ_Server.Show;
@@ -90,8 +99,8 @@ begin
     WM_RBUTTONDOWN:
     begin
        SetForegroundWindow(Handle);
-       GetCursorPos(p);
-       PM_Princ.Popup(p.x, p.y);
+       GetCursorPos(ap);
+       PM_Princ.Popup(ap.x, ap.y);
        PostMessage(Handle, WM_NULL, 0, 0);
     end;
   end;

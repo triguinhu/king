@@ -44,31 +44,25 @@ object Frm_Princ_Server: TFrm_Princ_Server
     ExplicitWidth = 539
   end
   object PM_Princ: TPopupMenu
-    Left = 328
-    Top = 258
+    Left = 528
+    Top = 216
     object Im_Ger_Serv: TMenuItem
       Caption = 'Gerenciar Servidor'
-      OnDrawItem = Im_Ger_ServDrawItem
     end
     object Im_Min: TMenuItem
       Caption = 'Minimizar'
-      OnDrawItem = Im_MinDrawItem
     end
     object Im_Conf: TMenuItem
       Caption = 'Configura'#231#245'es'
-      OnDrawItem = Im_ConfDrawItem
     end
     object Im_Lic: TMenuItem
       Caption = 'Licen'#231'a'
-      OnDrawItem = Im_LicDrawItem
     end
     object Im_Login: TMenuItem
       Caption = 'Login'
     end
     object Im_Sair: TMenuItem
       Caption = 'Sair'
-      OnClick = Im_SairClick
-      OnDrawItem = Im_SairDrawItem
     end
   end
 end

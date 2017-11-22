@@ -60,15 +60,12 @@ object Frm_Princ_Server: TFrm_Princ_Server
     end
     object Im_Lic: TMenuItem
       Caption = 'Licen'#231'a'
-      OnDrawItem = Im_LicDrawItem
     end
     object Im_Login: TMenuItem
       Caption = 'Login'
     end
     object Im_Sair: TMenuItem
       Caption = 'Sair'
-      OnClick = Im_SairClick
-      OnDrawItem = Im_SairDrawItem
     end
   end
 end

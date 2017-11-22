@@ -67,8 +67,6 @@ object Frm_Princ_Server: TFrm_Princ_Server
     end
     object Im_Sair: TMenuItem
       Caption = 'Sair'
-      OnClick = Im_SairClick
-      OnDrawItem = Im_SairDrawItem
     end
   end
 end
