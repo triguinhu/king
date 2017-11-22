@@ -3,7 +3,7 @@ program Servidor_King_01;
 uses
   Vcl.Forms,
   U_Princ_Server in 'U_Princ_Server.pas' {Form1},
-  U_DM_01_Server in 'U_DM_01_Server.pas' {Dm_01_Server: TDataModule};
+  U_DM_01_Server in 'U_DM_01_Server.pas' {Dm_01_Server_01: TDataModule};
 
 {$R *.res}
 
@@ -11,6 +11,6 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TDm_01_Server, Dm_01_Server);
+  Application.CreateForm(TDm_01_Server_01, Dm_01_Server_01);
   Application.Run;
 end.

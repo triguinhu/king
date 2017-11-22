@@ -1,0 +1,5 @@
+object Dm_01_Server_01: TDm_01_Server_01
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+end

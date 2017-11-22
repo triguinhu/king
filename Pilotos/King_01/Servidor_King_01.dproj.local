@@ -5,5 +5,8 @@
     <Transaction>2017/11/22 10:14:27.000.692,C:\Users\supor\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\U_Princ_Server.dfm</Transaction>
     <Transaction>2017/11/22 10:14:27.000.692,C:\Users\supor\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\U_Princ_Server.pas</Transaction>
     <Transaction>2017/11/22 10:14:42.000.844,C:\Users\supor\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\Servidor_King_01.dproj</Transaction>
+    <Transaction>2017/11/22 11:42:16.446,=D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\Unit1.pas</Transaction>
+    <Transaction>2017/11/22 11:42:58.782,D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\U_DM_01_Server.dfm=D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\Unit1.dfm</Transaction>
+    <Transaction>2017/11/22 11:42:58.782,D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\U_DM_01_Server.pas=D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
