@@ -1,0 +1,38 @@
+unit U_Princ_Server;
+
+interface
+
+uses
+  Winapi.Windows,
+  Winapi.Messages,
+  Winapi.ShellAPI,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ComCtrls;
+
+const
+  WM_ICONTRAY = WM_USER + 1;
+
+type
+  TFrm_Princ_Server = class(TForm)
+    StatusBar: TStatusBar;
+  private
+    { Private declarations }
+   TrayIconData: TNotifyIconData;
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Princ_Server: TFrm_Princ_Server;
+
+implementation
+
+{$R *.dfm}
+
+end.
