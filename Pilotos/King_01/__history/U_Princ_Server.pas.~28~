@@ -124,9 +124,7 @@ end;
 
 procedure TFrm_Princ_Server.FormDestroy(Sender: TObject);
 begin
-
   Shell_NotifyIcon(NIM_DELETE, @aTrayIconData);
-
 end;
 
 procedure TFrm_Princ_Server.Im_ConfDrawItem(Sender: TObject;
