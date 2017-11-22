@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2017/11/22 10:13:36.679,=C:\Users\supor\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/22 10:14:27.692,D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\U_Princ_Server.dfm=C:\Users\supor\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2017/11/22 10:14:27.692,D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\U_Princ_Server.pas=C:\Users\supor\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/22 10:14:42.844,D:\Utils\King\branches\GIT_01\king\Pilotos\King_01\Servidor_King_01.dproj=C:\Users\supor\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
