@@ -18,11 +18,10 @@ uses
   SynCrossPlatformSpecific,
   {$ENDIF}
 
-
-
   System.SysUtils,
   System.Variants,
   System.Classes,
+  IniFiles,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -56,6 +55,7 @@ type
     procedure Im_SairDrawItem(Sender: TObject; ACanvas: TCanvas;
       ARect: TRect; Selected: Boolean);
     procedure Im_SairClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     { Private declarations }
    aTrayIconData: TNotifyIconData;
@@ -99,8 +99,18 @@ begin
     finally
       atf.Free;
     end;
-    TextOut(2, 98, ' Servidor King ');
+    TextOut(2, 98, 'Servidor King');
   end;
+
+end;
+
+procedure TFrm_Princ_Server.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
+begin
+
+   if CanClose then
+    CanClose := false;
+   Frm_Princ_Server.Hide;
 
 end;
 
@@ -126,7 +136,9 @@ end;
 
 procedure TFrm_Princ_Server.FormDestroy(Sender: TObject);
 begin
+
   Shell_NotifyIcon(NIM_DELETE, @aTrayIconData);
+
 end;
 
 procedure TFrm_Princ_Server.Im_ConfDrawItem(Sender: TObject;

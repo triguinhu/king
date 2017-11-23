@@ -3,12 +3,25 @@ unit U_Princ_Server;
 interface
 
 uses
+
+  {$IFDEF MSWINDOWS}
+  mORMotHttpClient,
+  mORMot,
+  mORMotVCL,
+  SynCommons,
   Winapi.Windows,
   Winapi.Messages,
   Winapi.ShellAPI,
+  {$ELSE}
+  SynCrossPlatformREST,
+  SynCrossPlatformJSON,
+  SynCrossPlatformSpecific,
+  {$ENDIF}
+
   System.SysUtils,
   System.Variants,
   System.Classes,
+  IniFiles,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -39,6 +52,10 @@ type
       ARect: TRect; Selected: Boolean);
     procedure Im_LicDrawItem(Sender: TObject; ACanvas: TCanvas;
       ARect: TRect; Selected: Boolean);
+    procedure Im_SairDrawItem(Sender: TObject; ACanvas: TCanvas;
+      ARect: TRect; Selected: Boolean);
+    procedure Im_SairClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     { Private declarations }
    aTrayIconData: TNotifyIconData;
@@ -82,15 +99,28 @@ begin
     finally
       atf.Free;
     end;
-    TextOut(2, 98, ' Servidor King ');
+    TextOut(2, 98, 'Servidor King');
   end;
 
 end;
 
-procedure TFrm_Princ_Server.FormCreate(Sender: TObject);
+procedure TFrm_Princ_Server.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
 begin
 
-  PM_Princ.OwnerDraw:=True;
+   if CanClose then
+    CanClose := false;
+   Frm_Princ_Server.Hide;
+
+end;
+
+procedure TFrm_Princ_Server.FormCreate(Sender: TObject);
+var
+  aIniFile: TIniFile;
+  aLocal_Server, aTipo_Server: string;
+begin
+
+  PM_Princ.OwnerDraw := True;
 
   with aTrayIconData do
   begin
@@ -105,11 +135,17 @@ begin
 
   Shell_NotifyIcon(NIM_ADD, @aTrayIconData);
 
+  aIniFile := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'config.ini');
+
+  aLocal_Server := aIniFile.ReadString('Config', 'Local', '');
+
 end;
 
 procedure TFrm_Princ_Server.FormDestroy(Sender: TObject);
 begin
+
   Shell_NotifyIcon(NIM_DELETE, @aTrayIconData);
+
 end;
 
 procedure TFrm_Princ_Server.Im_ConfDrawItem(Sender: TObject;
@@ -175,6 +211,31 @@ begin
   ACanvas.FillRect(ARect);
 
   DrawText(ACanvas.Handle, PChar('Minimizar'), -1, ARect, DT_LEFT or DT_VCENTER or DT_SINGLELINE or DT_NOCLIP);
+
+end;
+
+procedure TFrm_Princ_Server.Im_SairClick(Sender: TObject);
+begin
+
+  Application.Terminate;
+
+end;
+
+procedure TFrm_Princ_Server.Im_SairDrawItem(Sender: TObject;
+  ACanvas: TCanvas; ARect: TRect; Selected: Boolean);
+begin
+
+  if Selected then
+    ACanvas.Brush.Color := clHighlight
+  else
+    ACanvas.Brush.Color := clMenu;
+
+  ARect.Left := 35;
+  ACanvas.FillRect(ARect);
+
+  DrawText(ACanvas.Handle, PChar('Sair'), -1, ARect, DT_LEFT or DT_VCENTER or DT_SINGLELINE or DT_NOCLIP);
+
+  DrawBar(ACanvas);
 
 end;
 

@@ -21,6 +21,7 @@ uses
   System.SysUtils,
   System.Variants,
   System.Classes,
+  IniFiles,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -114,9 +115,13 @@ begin
 end;
 
 procedure TFrm_Princ_Server.FormCreate(Sender: TObject);
+var
+  aIniFile: TIniFile;
+  aLocal_Server, aTipo_Server: string;
+  aLocal_Lic, aTipo_Lic: string;
 begin
 
-  PM_Princ.OwnerDraw:=True;
+  PM_Princ.OwnerDraw := True;
 
   with aTrayIconData do
   begin
@@ -130,6 +135,24 @@ begin
   end;
 
   Shell_NotifyIcon(NIM_ADD, @aTrayIconData);
+
+  aIniFile := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'config.ini');
+  aTipo_Server := aIniFile.ReadString('Config', 'Tipo', '');
+  aLocal_Server := aIniFile.ReadString('Config', 'Local', '');
+
+  aTipo_Lic := aIniFile.ReadString('Licenca', 'Tipo', '');
+  aLocal_Lic := aIniFile.ReadString('Licenca', 'Local', '');
+
+  case StrToIntDef(aTipo_Server,0) of
+    0:
+    begin
+
+    end;
+    1:
+    begin
+
+    end;
+  end;
 
 end;
 
